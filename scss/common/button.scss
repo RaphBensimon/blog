@@ -1,0 +1,39 @@
+button {
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+}
+button:before {
+    content: '';
+    width: 120%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    color: $white;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+button:hover::before {
+    transform: translate3d(100%,0,0);
+}
+button span {
+    mix-blend-mode: hard-light;
+}
+@each $name, $color in $theme {
+	.button-#{"" + $name} {
+        position: relative;
+        color: $white;
+        overflow: hidden;
+        background-color: lighten($color, 10%);
+        box-shadow: 0px 10px 20px 4px rgba($color, 0.4);
+        &:before {
+            background-color: $color;
+        }
+        &:active {
+            top: 2px;
+        }
+	}
+}
