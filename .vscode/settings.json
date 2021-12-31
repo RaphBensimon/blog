@@ -19,5 +19,12 @@
 		"./client",
 		"./server"
 	],
-	"editor.renderWhitespace": "all", 
+	"editor.renderWhitespace": "all",
+	"stylelint.snippet": [
+		"css",
+		"less",
+		"postcss",
+		"scss"
+	],
+	
 }

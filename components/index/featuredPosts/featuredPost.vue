@@ -1,16 +1,16 @@
 <template>
 	<div class="featured-post">
-		<div class="featured-post-img-container">
-			<img class="featured-post-img" :src="post.img">
-		</div>
+		<NuxtLink :to="`/article/${post.slug}`" class="featured-post-img-container">
+			<img class="featured-post-img" :src="post.featured_image" :alt="post.featured_image_alt">
+		</NuxtLink>
 		<div class="featured-meta-container">
-			<NuxtLink to="/" class="featured-post-link">
+			<NuxtLink :to="`/article/${post.slug}`" class="featured-post-link">
 				{{ post.title }}
 			</NuxtLink>
 			<div class="featured-tags-container">
-				<div class="featured-tag" v-for="(tag, i) in post.tags" :key="i">
-					<span>{{ tag }}</span>
-				</div>
+				<NuxtLink to="/" class="featured-tag" v-for="(tag, i) in post.tags" :key="i">
+					<span>{{ tag.name }}</span>
+				</NuxtLink>
 			</div>
 		</div>
 	</div>
@@ -33,13 +33,13 @@ export default {
 }
 .featured-post-img-container {
 	height: 100px;
-    box-shadow: 0px 6px 10px 0px rgb(0 0 0 / 24%);
+	box-shadow: 0 6px 10px 0 rgb(0 0 0 / 24%);
 	border-radius: 15px;
 	overflow: hidden;
 	margin-right: 20px;
 	transition: 0.3s ease-in-out;
 	&:hover {
-		transform : scale(.95)
+		transform: scale(0.95);
 	}
 }
 .featured-post-img-container:hover .featured-post-img {
@@ -55,10 +55,10 @@ export default {
 	font-weight: 500;
 	position: relative;
 	background-position: 0 bottom;
-	background-image: linear-gradient(90deg,$primary,$primary);
+	background-image: linear-gradient(90deg, $primary, $primary);
 	background-repeat: no-repeat;
 	background-size: 0% 2px;
-	transition: .3s cubic-bezier(.25,.8,.25,1);
+	transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 	position: relative;
 	top: 0;
 	&:hover {

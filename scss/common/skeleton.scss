@@ -1,0 +1,20 @@
+.skeleton {
+	height: 1rem;
+	width: 100%;
+	background: rgb($black, 0.1);
+	position: relative;
+	overflow: hidden;
+	border-radius: 15px;
+	cursor: wait;
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 0;
+		background: linear-gradient(90deg, transparent, rgb($white, 0.6), transparent);
+		animation: skeleton-animate-wave 1.75s infinite;
+	}
+}
